@@ -81,8 +81,8 @@ impl ActiveEventLoop {
 
     pub(crate) fn exit(&self) {
         // https://developer.apple.com/library/archive/qa/qa1561/_index.html
-        // it is not possible to quit an iOS app gracefully and programmatically
-        tracing::warn!("`ControlFlow::Exit` ignored on iOS");
+        tracing::warn!("Crashing! Graceful exit not possible on iOS");
+        std::process::exit(1);
     }
 
     pub(crate) fn exiting(&self) -> bool {
